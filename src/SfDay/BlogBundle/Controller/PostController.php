@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use SfDay\BlogBundle\Entity\Post;
 use SfDay\BlogBundle\Form\PostType;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 
 /**
  * Post controller.
@@ -56,7 +57,7 @@ class PostController extends Controller
      *
      */
     public function newAction()
-    {
+    {      
         $entity = new Post();
         $form   = $this->createForm(new PostType(), $entity);
 
@@ -102,6 +103,14 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $entity = $em->getRepository('BlogBundle:Post')->find($id);
+        
+        $securityContext = $this->get('security.context');
+
+        // check for edit access
+        if (false === $securityContext->isGranted(array('ROLE_BLOGGER', MaskBuilder::CODE_EDIT), $entity))
+        {
+          throw new \Symfony\Component\Security\Core\Exception\AccessDeniedException();
+        }
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Post entity.');

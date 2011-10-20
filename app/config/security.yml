@@ -1,6 +1,9 @@
 security:
-    # encoders:
-    #     SfDay\UserBundle\Entity\User: sha512
+    acl:
+      connection: default
+    
+    access_decision_manager:
+      strategy: unanimous
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -20,11 +23,11 @@ security:
             # http_basic:
             #    realm: "Secured Demo Area"
 
-    access_control:
-        - { path: ^/post/new, roles: ROLE_BLOGGER }
-        - { path: ^/post/create, roles: ROLE_BLOGGER }
-        - { path: ^/post/[\d+]/edit, roles: ROLE_BLOGGER }
-        - { path: ^/post/[\d+]/update, roles: ROLE_BLOGGER }
-        - { path: ^/post/[\d+]/delete, roles: ROLE_BLOGGER }
-        - { path: ^/post$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    # access_control:
+    #     - { path: ^/post/new, roles: ROLE_BLOGGER }
+    #     - { path: ^/post/create, roles: ROLE_BLOGGER }
+    #     - { path: ^/post/[\d+]/edit, roles: ROLE_BLOGGER }
+    #     - { path: ^/post/[\d+]/update, roles: ROLE_BLOGGER }
+    #     - { path: ^/post/[\d+]/delete, roles: ROLE_BLOGGER }
+    #     - { path: ^/post$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
