@@ -1,0 +1,22 @@
+SfDay\UserBundle\Entity\User:
+    type: entity
+    table: user
+    repositoryClass: SfDay\UserBundle\Entity\UserRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        
+        firstname:
+            type: string
+            length: 255
+            nullable: true
+            
+        lastname:
+            type: string
+            length: 255
+            nullable: true
+      
+    lifecycleCallbacks: {  }
