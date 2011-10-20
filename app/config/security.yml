@@ -21,5 +21,10 @@ security:
             #    realm: "Secured Demo Area"
 
     access_control:
-        - { path: ^/post, roles: ROLE_BLOGGER }
-        #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+        - { path: ^/post/new, roles: ROLE_BLOGGER }
+        - { path: ^/post/create, roles: ROLE_BLOGGER }
+        - { path: ^/post/[\d+]/edit, roles: ROLE_BLOGGER }
+        - { path: ^/post/[\d+]/update, roles: ROLE_BLOGGER }
+        - { path: ^/post/[\d+]/delete, roles: ROLE_BLOGGER }
+        - { path: ^/post$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+

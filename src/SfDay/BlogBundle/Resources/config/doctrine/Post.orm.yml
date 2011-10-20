@@ -15,4 +15,9 @@ SfDay\BlogBundle\Entity\Post:
             type: text
         publishedAt:
             type: datetime
+            
+    manyToOne:
+        author:
+          targetEntity: SfDay\UserBundle\Entity\User
+          inversedBy: posts
     lifecycleCallbacks: {  }

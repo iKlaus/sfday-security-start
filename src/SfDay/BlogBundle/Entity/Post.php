@@ -28,6 +28,8 @@ class Post
      * @var datetime $publishedAt
      */
     private $publishedAt;
+    
+    protected $author;
 
 
     /**
@@ -105,4 +107,28 @@ class Post
     {
         return $this->publishedAt;
     }
+    
+    /**
+     * Getter for author class property 
+     *
+     * @author
+     * @return author value
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Setter for author class property 
+     *
+     * @author
+     * @param $author the new author value 
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+        return $this;
+    }
+    
 }

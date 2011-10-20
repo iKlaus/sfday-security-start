@@ -25,11 +25,17 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <form action="" class="pull-right">
-                    <input class="input-small" type="text" placeholder="Username">
-                    <input class="input-small" type="password" placeholder="Password">
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <ul class="nav secondary-nav">
+                    <li><a href="{{ url('fos_user_security_logout') }}">Logout</a></li>
+                </ul>
+                {% else %}
+                <form action="{{ url('fos_user_security_check') }}" method="post" class="pull-right">
+                    <input name="_username" class="input-small" type="text" placeholder="Username">
+                    <input name="_password" class="input-small" type="password" placeholder="Password">
                     <button class="btn" type="submit">Sign in</button>
                 </form>
+                {% endif %}
             </div>
         </div>
     </div>

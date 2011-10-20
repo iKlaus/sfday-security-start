@@ -11,6 +11,7 @@
             <th>Title</th>
             <th>Body</th>
             <th>Publishedat</th>
+            <th>Author</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
             <td>{{ entity.title }}</td>
             <td>{{ entity.body }}</td>
             <td>{% if entity.publishedAt %}{{ entity.publishedAt|date('Y-m-d H:i:s') }}{% endif%}</td>
+            <td>{{ entity.author.username }}</td>
             <td>
                 <ul>
                     <li>

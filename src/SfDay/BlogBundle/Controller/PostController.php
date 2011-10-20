@@ -73,6 +73,7 @@ class PostController extends Controller
     public function createAction()
     {
         $entity  = new Post();
+        $entity->setAuthor($this->getUser());
         $request = $this->getRequest();
         $form    = $this->createForm(new PostType(), $entity);
         $form->bindRequest($request);
