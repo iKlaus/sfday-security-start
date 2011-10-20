@@ -1,0 +1,7 @@
+parameters:
+#    sf_day_blog.example.class: SfDay\BlogBundle\Example
+
+services:
+#    sf_day_blog.example:
+#        class: %sf_day_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

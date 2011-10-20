@@ -1,0 +1,18 @@
+SfDay\BlogBundle\Entity\Post:
+    type: entity
+    table: post
+    repositoryClass: SfDay\BlogBundle\Entity\PostRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        title:
+            type: string
+            length: 255
+        body:
+            type: text
+        publishedAt:
+            type: datetime
+    lifecycleCallbacks: {  }

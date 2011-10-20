@@ -1,0 +1,7 @@
+SfDayBlogBundle_post:
+    resource: "routing/post.yml"
+    prefix:   /post
+
+SfDayBlogBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SfDayBlogBundle:Default:index }
